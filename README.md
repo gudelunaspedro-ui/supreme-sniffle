@@ -1,68 +1,37 @@
-# Stack Overflown
+<div align="center">
 
-**Stack Overflown** é um jogo de quebra-cabeça inspirado em Tetris, com temática de desenvolvimento de software. O jogador organiza os blocos que caem e tenta formar o padrão de erro exibido antes que a pilha alcance o topo.
+# 🎉 Congratulations gudelunaspedro-ui! 🎉
 
-## Objetivo
+<img src="https://octodex.github.com/images/welcometocat.png" height="200px" />
 
-- Montar padrões relacionados a erros de programação.
-- Acumular pontos e aumentar o nível da partida.
-- Evitar que os blocos alcancem o topo da área de jogo.
+### 🌟 You've successfully completed the exercise! 🌟
 
-## Tecnologias
+## 🚀 Share Your Success!
 
-- HTML5
-- CSS3
-- JavaScript
-- Canvas API
-- LocalStorage
+**Show off your new skills and inspire others!**
 
-## Estrutura do projeto
+<a href="https://twitter.com/intent/tweet?text=I%20just%20completed%20the%20%22Introduction%20to%20Git%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Fgudelunaspedro-ui%2Fsupreme-sniffle%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20X-1da1f2?style=for-the-badge&logo=x&logoColor=white" alt="Share on X" />
+</a>
+<a href="https://bsky.app/intent/compose?text=I%20just%20completed%20the%20%22Introduction%20to%20Git%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Fgudelunaspedro-ui%2Fsupreme-sniffle%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20Bluesky-0085ff?style=for-the-badge&logo=bluesky&logoColor=white" alt="Share on Bluesky" />
+</a>
+<a href="https://www.linkedin.com/feed/?shareActive=true&text=I%20just%20completed%20the%20%22Introduction%20to%20Git%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Fgudelunaspedro-ui%2Fsupreme-sniffle%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20LinkedIn-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn" />
+</a>
 
-```text
-.
-├── README.md
-└── src/
-    ├── index.html
-    ├── index.js
-    ├── patterns.js
-    └── style.css
-```
+### 🎯 What's Next?
 
-### Arquivos principais
+**Keep the momentum going!**
 
-- `src/index.html` — interface e elementos visuais do jogo.
-- `src/style.css` — estilos, tema visual e responsividade.
-- `src/index.js` — movimentação, colisões, pontuação, níveis, pausa e controles.
-- `src/patterns.js` — banco de padrões de erros usados como objetivos.
+[![](https://img.shields.io/badge/Return%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/gudelunaspedro-ui/supreme-sniffle/issues/1)
+[![GitHub Skills](https://img.shields.io/badge/Explore%20GitHub%20Skills-000000?style=for-the-badge&logo=github&logoColor=white)](https://learn.github.com/skills)
 
-## Como executar
+*There's no better way to learn than building things!* 🚀
 
-Não há dependências ou instalação obrigatória. Basta abrir `src/index.html` em um navegador moderno.
+</div>
 
-Também existe um `index.html` na raiz para facilitar a visualização como página estática.
+---
 
-## Controles
+&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
-| Tecla | Ação |
-|---|---|
-| `←` / `→` | Mover a peça |
-| `↑` | Rotacionar |
-| `↓` | Queda acelerada |
-| `Espaço` | Queda instantânea |
-| `P` | Pausar/continuar |
-
-## Conceitos de Git e GitHub aplicados
-
-Este repositório foi utilizado como aplicação prática dos conceitos estudados na trilha GitHub Foundations. O histórico do projeto inclui:
-
-- commits organizados e descritivos;
-- branch de desenvolvimento separada da `main`;
-- Pull Request para integrar a alteração;
-- merge da branch de desenvolvimento na `main`;
-- documentação do projeto neste README.
-
-## Trabalho acadêmico
-
-Projeto desenvolvido para a disciplina **Design Profissional**, como parte da aplicação prática dos conhecimentos de Git e GitHub.
-
-Durante a apresentação, o repositório pode ser usado para demonstrar a evolução do código, a branch de desenvolvimento, o Pull Request, o merge e a documentação do projeto.
