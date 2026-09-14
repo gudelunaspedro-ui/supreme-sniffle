@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stack Overflown - A Dev-Themed Puzzle Game</title>
+    <meta name="description" content="Stack Overflown: um jogo de puzzle com temática de programação." />
+    <title>Stack Overflown — Puzzle de Programação</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="game-container">
-      <div class="main-panel">
-        <div>
-          <h1>🧱 Stack Overflown</h1>
-          <div class="subtitle">Match the error patterns before you overflow!</div>
+    <main class="game-container">
+      <section class="main-panel" aria-label="Área do jogo">
+        <header class="game-header">
+          <p class="eyebrow">// DEBUG MODE</p>
+          <h1>Stack <span>Overflown</span></h1>
+          <p class="subtitle">Monte o padrão de erro antes que a stack alcance o topo.</p>
+        </header>
+        <div class="canvas-wrap">
+          <canvas id="gameCanvas" width="300" height="600" aria-label="Tabuleiro do jogo"></canvas>
         </div>
-        <canvas id="gameCanvas" width="300" height="600"></canvas>
-      </div>
+      </section>
 
-      <div class="side-panel">
-        <div class="info-section">
-          <h3>Score</h3>
-          <div class="score" id="score">0</div>
-          <div class="status" id="status">Playing...</div>
-        </div>
+      <aside class="side-panel" aria-label="Informações da partida">
+        <section class="info-section score-section">
+          <h2>Placar</h2>
+          <div class="stats">
+            <div><span>PONTOS</span><strong id="score">0</strong></div>
+            <div><span>RECORDE</span><strong id="high-score">0</strong></div>
+            <div><span>NÍVEL</span><strong id="level">1</strong></div>
+          </div>
+        </section>
 
-        <div class="info-section">
-          <h3>Target Pattern</h3>
+        <section class="info-section">
+          <h2>Padrão alvo</h2>
           <div class="pattern-preview">
-            <canvas id="patternCanvas" width="100" height="100"></canvas>
-            <div class="pattern-name" id="patternName">Loading...</div>
+            <canvas id="patternCanvas" width="100" height="100" aria-label="Prévia do padrão alvo"></canvas>
+            <div class="pattern-name" id="patternName">Carregando...</div>
           </div>
-        </div>
+        </section>
 
-        <div class="info-section">
-          <h3>Controls</h3>
+        <section class="info-section">
+          <h2>Controles</h2>
           <div class="controls">
-            <strong>←/→</strong> Move<br />
-            <strong>↑</strong> Rotate<br />
-            <strong>↓</strong> Soft Drop<br />
-            <strong>Space</strong> Hard Drop<br />
-            <strong>P</strong> Pause
+            <p><kbd>←</kbd><kbd>→</kbd> mover</p>
+            <p><kbd>↑</kbd> rotacionar</p>
+            <p><kbd>↓</kbd> queda rápida</p>
+            <p><kbd>Espaço</kbd> queda instantânea</p>
+            <p><kbd>P</kbd> pausar</p>
           </div>
-        </div>
-      </div>
-    </div>
+          <div class="status" id="status" role="status">● Em execução</div>
+        </section>
+      </aside>
+    </main>
 
-    <div class="game-over" id="gameOver">
-      <h2>STACK OVERFLOW!</h2>
-      <p>Your stack reached the ceiling</p>
-      <p>Final Score: <span id="finalScore">0</span></p>
-      <button onclick="location.reload()">Restart</button>
+    <div class="game-over" id="gameOver" role="dialog" aria-modal="true" aria-labelledby="gameOverTitle">
+      <div class="terminal-icon">&gt;_</div>
+      <h2 id="gameOverTitle">STACK OVERFLOW!</h2>
+      <p>A pilha chegou ao limite.</p>
+      <p class="final-score">Pontuação final <strong id="finalScore">0</strong></p>
+      <button type="button" onclick="location.reload()">Executar novamente</button>
     </div>
 
     <script src="patterns.js"></script>
