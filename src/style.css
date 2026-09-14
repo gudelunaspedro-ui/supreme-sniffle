@@ -1,168 +1,95 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --panel-2: #1c2128;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --green: #3fb950;
+  --cyan: #39d0d8;
+  --orange: #f0883e;
+  --red: #f85149;
 }
 
 body {
-  font-family: "Courier New", monospace;
-  background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
-  color: #d4d4d4;
+  margin: 0;
+  min-height: 100vh;
+  padding: 28px 18px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  color: var(--text);
+  background: radial-gradient(circle at top, #18212b 0, var(--bg) 55%);
+  font-family: "Courier New", Consolas, monospace;
 }
 
 .game-container {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: min(100%, 860px);
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 260px;
+  gap: 24px;
+  align-items: start;
 }
 
-.main-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.main-panel, .side-panel {
+  background: rgba(22, 27, 34, .94);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
-h1 {
-  text-align: center;
-  color: #f48771;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 2.5em;
-  margin-bottom: 10px;
+.main-panel { padding: 22px; }
+
+.game-header { margin-bottom: 18px; }
+.eyebrow { margin: 0 0 6px; color: var(--green); font-size: .75rem; letter-spacing: .12em; }
+h1 { margin: 0; font-size: clamp(2rem, 5vw, 3rem); line-height: 1; color: var(--text); }
+h1 span { color: var(--orange); }
+.subtitle { margin: 10px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+
+.canvas-wrap { display: flex; justify-content: center; }
+canvas { display: block; image-rendering: pixelated; }
+#gameCanvas { width: min(300px, 100%); height: auto; border: 2px solid var(--orange); border-radius: 6px; box-shadow: 0 0 30px rgba(240, 136, 62, .1); }
+
+.side-panel { padding: 20px; }
+.info-section { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.info-section:last-child { margin: 0; padding: 0; border: 0; }
+.info-section h2 { margin: 0 0 12px; color: var(--cyan); font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+
+.stats { display: grid; gap: 10px; }
+.stats div { display: flex; align-items: baseline; justify-content: space-between; padding: 9px 11px; background: var(--panel-2); border-radius: 6px; }
+.stats span { color: var(--muted); font-size: .68rem; }
+.stats strong { color: var(--orange); font-size: 1.25rem; }
+
+.pattern-preview { text-align: center; }
+#patternCanvas { width: 100px; height: 100px; margin: 8px auto 10px; border: 1px solid var(--border); border-radius: 4px; }
+.pattern-name { color: var(--orange); font-weight: bold; font-size: .82rem; }
+
+.controls p { display: flex; gap: 8px; align-items: center; margin: 8px 0; color: var(--muted); font-size: .74rem; }
+kbd { min-width: 24px; padding: 3px 6px; color: var(--text); background: #21262d; border: 1px solid var(--border); border-radius: 4px; text-align: center; box-shadow: inset 0 -1px rgba(255,255,255,.05); }
+.status { margin-top: 14px; color: var(--green); font-size: .72rem; }
+
+.game-over { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(13, 17, 23, .86); z-index: 10; }
+.game-over.show { display: flex; }
+.game-over > * { max-width: 430px; }
+.game-over { flex-direction: column; text-align: center; }
+.terminal-icon { color: var(--green); font-weight: bold; font-size: 2rem; }
+.game-over h2 { margin: 10px 0; color: var(--red); font-size: clamp(1.8rem, 7vw, 3rem); }
+.game-over p { color: var(--muted); }
+.final-score strong { color: var(--orange); }
+.game-over button { margin-top: 8px; padding: 12px 20px; border: 0; border-radius: 6px; color: #0d1117; background: var(--green); font: inherit; font-weight: bold; cursor: pointer; }
+.game-over button:hover { filter: brightness(1.08); }
+
+@media (max-width: 720px) {
+  body { align-items: flex-start; padding: 16px 10px; }
+  .game-container { grid-template-columns: 1fr; max-width: 520px; }
+  .side-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .info-section { margin: 0; padding: 0 0 18px; }
+  .info-section:last-child { grid-column: 1 / -1; }
 }
 
-.subtitle {
-  text-align: center;
-  color: #858585;
-  font-size: 0.9em;
-  margin-bottom: 20px;
-}
-
-canvas {
-  border: 3px solid #f48771;
-  background: #252526;
-  display: block;
-  box-shadow: 0 0 20px rgba(244, 135, 113, 0.3);
-}
-
-.side-panel {
-  background: #252526;
-  border: 2px solid #3e3e42;
-  padding: 20px;
-  border-radius: 8px;
-  min-width: 200px;
-}
-
-.info-section {
-  margin-bottom: 25px;
-}
-
-.info-section h3 {
-  color: #4ec9b0;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-  border-bottom: 1px solid #3e3e42;
-  padding-bottom: 5px;
-}
-
-.score {
-  font-size: 2em;
-  color: #ce9178;
-  font-weight: bold;
-}
-
-.pattern-preview {
-  margin-top: 10px;
-}
-
-#patternCanvas {
-  border: 2px solid #3e3e42;
-  background: #1e1e1e;
-  display: block;
-  margin: 10px auto;
-}
-
-.pattern-name {
-  text-align: center;
-  color: #f48771;
-  font-weight: bold;
-  margin-top: 8px;
-  font-size: 0.9em;
-}
-
-.controls {
-  line-height: 1.8;
-  color: #858585;
-}
-
-.controls strong {
-  color: #d4d4d4;
-}
-
-.game-over {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #1e1e1e;
-  border: 3px solid #f48771;
-  padding: 40px;
-  border-radius: 10px;
-  text-align: center;
-  display: none;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
-  z-index: 1000;
-}
-
-.game-over.show {
-  display: block;
-}
-
-.game-over h2 {
-  color: #f48771;
-  font-size: 2.5em;
-  margin-bottom: 15px;
-}
-
-.game-over p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
-.game-over button {
-  background: #f48771;
-  color: #1e1e1e;
-  border: none;
-  padding: 15px 30px;
-  font-size: 1.1em;
-  font-family: "Courier New", monospace;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-.game-over button:hover {
-  background: #ff9d88;
-}
-
-.status {
-  color: #4ec9b0;
-  font-size: 0.9em;
-  margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.8em;
-  }
-
-  .game-container {
-    gap: 15px;
-  }
+@media (max-width: 430px) {
+  .main-panel { padding: 14px; }
+  .side-panel { display: block; }
+  .info-section { margin-bottom: 18px; padding-bottom: 18px; }
 }
